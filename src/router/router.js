@@ -1,10 +1,12 @@
 import express from 'express';
 import versionRoute from './version/version.route';
-import getRestaurantRoute from './dietary/dietary.route';
+import dietaryRoute from './dietary/dietary.route';
+import getRestaurantRoute from './restaurant/restaurant.route';
 
 
 const routes = [
 	versionRoute,
+	dietaryRoute,
 	getRestaurantRoute
 ];
 
