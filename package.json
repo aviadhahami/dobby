@@ -4,11 +4,40 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && node ./dist/index.js",
+    "start:prod": "node ./dist/index.js",
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aviadhahami/dobby.git"
+  },
+  "jest": {
+    "verbose": true,
+    "rootDir": "__tests__",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/mocks/"
+    ]
+  },
+  "engines": {
+    "node": "7.x"
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "body-parser": "^1.13.3",
+    "colors": "^1.1.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "jest": "latest",
+    "lodash": "^4.17.4",
+    "log-symbols": "^1.0.2",
+    "moment": "^2.18.1",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4"
   },
   "author": "",
   "license": "ISC",
