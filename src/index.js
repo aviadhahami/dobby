@@ -2,6 +2,7 @@ import http from 'http';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import router from './router/router';
 
 let app = express();
 app.server = http.createServer(app);
@@ -15,28 +16,8 @@ app.use(bodyParser.json({
 	limit: '100kb'
 }));
 
-
-const router = express.Router();
-router.get('*', (req, res) =>{
-	try{
-		const { PRODUCT_TYPES } = enums;
-
-		const subdomainName = extractSubdomainName(req.get('host'));
-		if(!subdomainName){
-			res.status(404).render('error',
-				{ subdomainName, statusCode: 404, error: 'Not found' });
-			return;
-		}
-
-	}catch(runtimeErr){
-		res.status(500).json(runtimeErr);
-		return;
-	}
-});
-
 // Listen to everything
-app.use('*', router);
-
+app.use(router);
 
 app.server.listen(process.env.PORT || '3002');
 
