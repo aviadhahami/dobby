@@ -18,7 +18,7 @@ const algorithm = (time, budget, atmosphere, special_type) => {
 	
 	const userInput = [timeAsHebrew, budgetAsHebrew, atmosphereAsHebrew, specialTypeAsHebrew];
 	const aggregation = {};
-	const results = [];
+	let results = [];
 	let maxIntersect = 0;
 	
 	for (const entry in db) {
@@ -34,15 +34,14 @@ const algorithm = (time, budget, atmosphere, special_type) => {
 	
 	const finalResult = [];
 	
+	let randomIndex = Math.round(Math.random() * results.length + 1);
+	finalResult.push(results[randomIndex]);
 	
-	
-	
-	// Go over all options in table, for each option
-	// insert option to aggregating hash s.t. {option: # of intersect }
-	// set maxInterset = 4
-	// for each key in aggregation, if agg[opt] == maxIntersct => put in array.
-	// amountLeft--;
-	// when finished iteration, maxIntersect--;
+	results.splice(randomIndex, 1);
+	randomIndex = Math.round(Math.random() * results.length + 1);
+	finalResult.push(results[randomIndex]);
+	return finalResult;
+
 	
 	
 };
