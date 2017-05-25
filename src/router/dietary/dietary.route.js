@@ -12,7 +12,7 @@ const dietOptionsAsObject = {};
 dietOptions.forEach((option, index) => dietOptionsAsObject[index] = option);
 
 const controller = (req, res) => {
-	res.status(200).json(dietOptionsAsObject);
+	res.status(200).json({ 'text': dietOptionsAsObject });
 };
 
 const route = {
