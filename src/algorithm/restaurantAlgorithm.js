@@ -1,3 +1,6 @@
+import db from './../../config/db';
+import _ from 'lodash';
+
 /**
  *
  * @param time
@@ -17,6 +20,21 @@ const algorithm = (time, budget, atmosphere, special_type) => {
 	const aggregation = {};
 	const results = [];
 	let maxIntersect = 0;
+	
+	for (const entry in db) {
+		aggregation[entry.id] = _.intersection(userInput, entry.tags).length;
+		maxIntersect = Math.max(aggregation[entry.id], maxIntersect);
+	}
+	
+	for (const key in aggregation) {
+		if ( aggregation[key] >= maxIntersect - 1 ) {
+			results.push(key);
+		}
+	}
+	
+	const finalResult = [];
+	
+	
 	
 	
 	// Go over all options in table, for each option
