@@ -1,14 +1,14 @@
 import { version } from './../../../package.json';
 
 
-const routeController = (req, res) => {
+const controller = (req, res) => {
 	res.status(200).send(version);
 };
 
 const route = {
 	path: '/version',
 	method: 'GET',
-	controller: routeController
+	controller
 };
 
 export default route;
