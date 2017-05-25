@@ -40,9 +40,6 @@ const algorithm = (time, budget, atmosphere, special_type) => {
 	results.splice(randomIndex, 1);
 	randomIndex = Math.round(Math.random() * results.length + 1);
 	finalResult.push(results[randomIndex]);
-	return finalResult;
-
-	
-	
+	return finalResult.map(itemId => _.find(db, (o) => o.id === itemId));
 };
 export default algorithm
