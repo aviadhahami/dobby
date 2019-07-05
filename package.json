@@ -7,7 +7,9 @@
     "start": "npm run build && node ./dist/index.js",
     "start:prod": "node ./dist/index.js",
     "build": "./node_modules/.bin/babel src --out-dir dist",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -38,12 +40,14 @@
     "log-symbols": "^1.0.2",
     "moment": "^2.18.1",
     "request": "^2.81.0",
-    "request-promise-native": "^1.0.4"
+    "request-promise-native": "^1.0.4",
+    "snyk": "^1.192.0"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aviadhahami/dobby/issues"
   },
-  "homepage": "https://github.com/aviadhahami/dobby#readme"
+  "homepage": "https://github.com/aviadhahami/dobby#readme",
+  "snyk": true
 }
